@@ -10,6 +10,29 @@ function Card(props) {
   )
 }
 
+function Produto({ nome, preco, imagem, descricao }) {
+  return (
+    <div style={{
+      border: "1px solid #ccc",
+      borderRadius: "10px",
+      padding: "16px",
+      width: "200px"
+    }}>
+      <img 
+        src={imagem} 
+        alt={nome} 
+        style={{ width: "100%", borderRadius: "8px" }}
+      />
+
+      <h2>{nome}</h2>
+
+      <p>{descricao}</p>
+
+      <strong>R$ {preco}</strong>
+    </div>
+  )
+}
+
 
 function Counter() {
   const [count, setCount] = useState(0);
@@ -26,17 +49,17 @@ function Counter() {
 
 function App() {
 
-  const usuarios = [
-    {nome: 'Pedro', texto: 'Teste'}, 
-    {nome: 'Vitor', texto: 'Teste'}, 
-    {nome: 'Caique', texto: 'Teste'}
+  const items = [
+    {nome: 'Copo', preco: 100, descricao: 'Copo', imagem: '#'}, 
+    {nome: 'Copo', preco: 100, descricao: 'Copo', imagem: '#'}, 
+    {nome: 'Copo', preco: 100, descricao: 'Copo', imagem: '#'}
   ]
 
   return (
     <>
       {
-        usuarios.map((index) => (
-          <Card titulo={index.nome} texto={index.texto} />
+        items.map((index) => (
+          <Produto nome={index.nome} preco={index.preco} imagem={index.imagem} descricao={index.descricao} />
         ))
       }
       <Counter/>
